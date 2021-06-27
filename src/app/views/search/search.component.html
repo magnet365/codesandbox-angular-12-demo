@@ -1,1 +1,41 @@
-<p>search works!</p>
+<h2>Search</h2>
+
+<div class="mb-3">
+  <button class="btn btn-secondary me-2" (click)="onClearClicked()">
+    <span class="material-icons bs-material-icons">
+      clear
+    </span>
+    Clear
+  </button>
+
+  <button class="btn btn-primary" (click)="onSearchClicked()">
+    <span class="material-icons bs-material-icons">
+      search
+    </span>
+    Search
+  </button>
+</div>
+
+<table *ngIf="showSearchResults" class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of searchResults">
+      <td>{{result.name}}</td>
+      <td>{{result.description}}</td>
+      <td>
+        <a class="btn btn-link btn-sm" routerLink="/details">
+          <span class="material-icons bs-material-icons me-1">
+            view_compact
+          </span>
+          <span>View Details</span>          
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

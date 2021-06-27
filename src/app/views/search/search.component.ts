@@ -7,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class SearchComponent implements OnInit {
+  public showSearchResults: boolean = false;
+  public searchResults: { name: string, description: string }[] = [];
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.searchResults = [
+      { name: 'Sample Result', description: 'This result is used for demonstrating routing' },
+    ];
   }
 
+  public onClearClicked(): void {
+    this.showSearchResults = false;
+  }
+
+  public onSearchClicked(): void {
+    this.showSearchResults = true;
+  }
 }
